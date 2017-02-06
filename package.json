@@ -1,0 +1,25 @@
+{
+  "name": "usco-um-branding",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "test": "ava './src/common/**/*.test.js' --require babel-register --verbose",
+    "build": "babel src/ -d dist --copy-files",
+    "release-patch": "git checkout master; npm version patch && npm run build; git commit -a -m 'chore(dist): built dist/'; git push origin master --tags ",
+    "release-minor": "git checkout master; npm version minor && npm run build; git commit -a -m 'chore(dist): built dist/'; git push origin master --tags ",
+    "release-major": "git checkout master; npm version major && npm run build; git commit -a -m 'chore(dist): built dist/'; git push origin master --tags "
+  },
+  "author": "Mark 'kaosat-dev' Moissette",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "babel-cli": "^6.6.5",
+    "babel-core": "^6.2.1",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-register": "^6.16.3"
+  }
+}
